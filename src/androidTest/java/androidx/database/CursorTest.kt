@@ -22,6 +22,7 @@ import org.junit.Assert.assertArrayEquals
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertNull
 import org.junit.Test
+import java.util.UUID
 
 class CursorTest {
     @Test fun blobByName() {
@@ -148,6 +149,17 @@ class CursorTest {
         val cursor = scalarCursor(null)
         val string = cursor.getStringOrNull("data")
         assertNull(string)
+    }
+
+    @Test fun uuidOrNull() {
+        val value = UUID.randomUUID()
+
+        val cursor = scalarCursor(value)
+        val uuidByIndex = cursor.getUuidOrNull(0)
+        val uuidByColName = cursor.getUuidOrNull("data")
+
+        assertEquals(value, uuidByIndex)
+        assertEquals(value, uuidByColName)
     }
 
     private fun scalarCursor(item: Any?): Cursor = MatrixCursor(arrayOf("data")).apply {

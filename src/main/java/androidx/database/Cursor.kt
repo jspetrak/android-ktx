@@ -275,7 +275,8 @@ inline fun Cursor.getStringOrNull(columnName: String) =
  * @see Cursor.isNull
  * @see Cursor.getString
  */
-inline fun Cursor.getUuidOrNull(columnIndex: Int): UUID? = if (isNull(columnIndex)) null else UUID.fromString(getString(columnIndex))
+inline fun Cursor.getUuidOrNull(columnIndex: Int): UUID? =
+    if (isNull(columnIndex)) null else UUID.fromString(getString(columnIndex))
 
 /**
  * Returns the value of the requested column as an UUID.
@@ -284,4 +285,5 @@ inline fun Cursor.getUuidOrNull(columnIndex: Int): UUID? = if (isNull(columnInde
  * @see Cursor.getString
  * @see Cursor.getColumnIndexOrThrow
  */
-inline fun Cursor.getUuidOrNull(columnName: String): UUID? = getColumnIndexOrThrow(columnName).let { getUuidOrNull(it) }
+inline fun Cursor.getUuidOrNull(columnName: String): UUID? =
+    getColumnIndexOrThrow(columnName).let { getUuidOrNull(it) }

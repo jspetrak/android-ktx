@@ -83,6 +83,8 @@ package androidx.database {
     method public static final String getString(android.database.Cursor, String columnName);
     method public static final String? getStringOrNull(android.database.Cursor, int index);
     method public static final error.NonExistentClass getStringOrNull(android.database.Cursor, String columnName);
+    method public static final java.util.UUID? getUuidOrNull(android.database.Cursor, int columnIndex);
+    method public static final java.util.UUID? getUuidOrNull(android.database.Cursor, String columnName);
   }
 
 }
